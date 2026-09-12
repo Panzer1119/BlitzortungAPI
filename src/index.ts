@@ -142,13 +142,14 @@ export class Client extends EventEmitter {
      * Connects to the remote API.
      */
     public connect(url = this.generateRandomConnectionUrl()) {
+        console.debug('Connecting to ' + url);
         const socket = this.socket = this.socketFactory.make(url);
         socket.on('message', (rawData: string) => {
-            this.emit('data', this.buildStrikeData(JSON.parse(rawData)));
+            this.emit('data', this.buildStrikeData(JSON.parse(this.decode(rawData))));
         });
         socket.on('open', () => {
             this.sendJSON({
-                time: 0,
+                a: 111,
             });
             this.emit('connect', socket);
         });
@@ -164,6 +165,29 @@ export class Client extends EventEmitter {
         }
         this.socket.close();
         this.removeAllListeners();
+    }
+
+    public decode(input: string): string {
+        const dictionary: Record<number, string> = {};
+        const data: string[] = input.split('');
+        let previous: string = data[0];
+        let result: string[] = [previous];
+        let dictionaryIndex: number = 256;
+        for (let i: number = 1; i < data.length; i++) {
+            let code: number = data[i].charCodeAt(0);
+            let current: string;
+            if (code < 256) {
+                current = data[i];
+            } else if (dictionary[code]) {
+                current = dictionary[code];
+            } else {
+                current = previous + previous.charAt(0);
+            }
+            result.push(current);
+            dictionary[dictionaryIndex++] = previous + current.charAt(0);
+            previous = current;
+        }
+        return result.join('');
     }
 
     private processRawLocation(location: { lat: number; lon: number; alt: number }): Location {
@@ -198,7 +222,7 @@ export class Client extends EventEmitter {
     }
 
     private generateRandomConnectionUrl() {
-        const knownServerIds = [1, 6, 5, 7];
-        return `wss://ws${knownServerIds[Math.floor(Math.random() * knownServerIds.length)]}.blitzortung.org:3000/`;
+        const knownServerIds = [1, 7, 8];
+        return `wss://ws${knownServerIds[Math.floor(Math.random() * knownServerIds.length)]}.blitzortung.org/`;
     }
 }
