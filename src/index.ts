@@ -169,7 +169,7 @@ export class Client extends EventEmitter {
 
     public decode(input: string): string {
         const dictionary: Record<number, string> = {};
-        const data: string[] = input.split('');
+        const data: string[] = String(input).split('');
         let previous: string = data[0];
         let result: string[] = [previous];
         let dictionaryIndex: number = 256;
