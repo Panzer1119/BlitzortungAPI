@@ -4,7 +4,7 @@ Simple WebSocket API for [Blitzortung](https://www.blitzortung.org)
 
 # Installation
 
-Install via npm `npm i -S @simonschick/blitzortungapi`
+Install via npm `npm i -S @panzer1119/blitzortungapi`
 
 # Documentation
 

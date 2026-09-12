@@ -1,5 +1,5 @@
 {
-  "name": "@simonschick/blitzortungapi",
+  "name": "@panzer1119/blitzortungapi",
   "version": "4.0.1",
   "description": "Simple WebSocket API for Blitzortung.de",
   "main": "dist/index.js",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SimonSchick/BlitzortungAPI.git"
+    "url": "git+https://github.com/Panzer1119/BlitzortungAPI.git"
   },
   "keywords": [
     "lightning",
@@ -39,7 +39,7 @@
   "author": "Simon Schick",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SimonSchick/BlitzortungAPI/issues"
+    "url": "https://github.com/Panzer1119/BlitzortungAPI/issues"
   },
-  "homepage": "https://github.com/SimonSchick/BlitzortungAPI#readme"
+  "homepage": "https://github.com/Panzer1119/BlitzortungAPI#readme"
 }
