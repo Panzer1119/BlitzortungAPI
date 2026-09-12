@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.0](https://github.com/Panzer1119/BlitzortungAPI/compare/v4.0.1...v4.1.0) (2026-09-13)
+
+
+### Bug Fixes
+
+* **client:** add decoding method and update connection logic ([b2c69d4](https://github.com/Panzer1119/BlitzortungAPI/commit/b2c69d4b244456b113c8d23e9f86e0de4adbb061))
+
 ### [4.0.1](https://github.com/SimonSchick/BlitzortungAPI/compare/v4.0.0...v4.0.1) (2020-08-17)
 
 
